@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="uk"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>МатКартки · 11 клас</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--ink:#191640;--mu:#625f86;--p:#5b3df5;--k:#ff5d8f;--gl:#ffffffc9;--bd:#ffffffe0;--sp:cubic-bezier(.34,1.56,.64,1)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;scrollbar-width:none}*::-webkit-scrollbar{display:none}
+html,body{height:100%;margin:0;overflow:hidden}
+body{background:#f6f4ff;color:var(--ink);font:500 16px/1.4 "Manrope","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;user-select:none}
+.mesh{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,#fcfaff,#f2eeff)}
+.mesh i{position:absolute;border-radius:50%;filter:blur(64px);opacity:.8;animation:dr 16s ease-in-out infinite alternate}
+.mesh i:nth-child(1){width:48vmax;height:48vmax;left:-14vmax;top:-16vmax;background:#8f6bff}
+.mesh i:nth-child(2){width:42vmax;height:42vmax;right:-14vmax;top:4vmax;background:#ff7fae;animation-delay:-5s}
+.mesh i:nth-child(3){width:44vmax;height:44vmax;left:18vmax;bottom:-24vmax;background:#33d8c6;animation-delay:-9s}
+.mesh i:nth-child(4){width:26vmax;height:26vmax;right:4vmax;bottom:-5vmax;background:#ffc766;animation-delay:-13s}
+@keyframes dr{to{transform:translate(7vmax,-5vmax) scale(1.18)}}
+.dots{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(#5b3df540 1.3px,transparent 1.4px);background-size:26px 26px;-webkit-mask-image:radial-gradient(ellipse at 50% 45%,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse at 50% 45%,#000 25%,transparent 80%)}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.08;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes rise{from{opacity:0;transform:translateY(18px) scale(.98)}}@keyframes bob{50%{transform:translateY(-8px) rotate(6deg)}}@keyframes pls{50%{opacity:.3}}@keyframes sk{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+main{position:relative;z-index:1;height:100vh;height:100dvh;max-width:760px;margin:0 auto;padding:calc(env(safe-area-inset-top,0px) + 14px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);display:flex}
+.scr{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;gap:12px;animation:rise .5s var(--sp) both}
+.gl{background:var(--gl);backdrop-filter:blur(22px) saturate(1.6);-webkit-backdrop-filter:blur(22px) saturate(1.6);border:1.5px solid var(--bd);border-radius:28px;box-shadow:0 1px 0 #fff inset,0 20px 40px -18px #6c5ce744,0 2px 6px #6c5ce70f}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:10px;flex:none}
+.logo{font-weight:800;font-size:1.15rem;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}.logo b{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--p),var(--k));color:#fff;box-shadow:0 8px 16px -6px #6c5ce799}
+.pill{padding:9px 15px;border:1.5px solid var(--bd);border-radius:99px;background:var(--gl);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font:inherit;font-weight:800;font-size:.95rem;color:var(--ink);cursor:pointer;white-space:nowrap;transition:transform .25s var(--sp)}.pill:active{transform:scale(.92)}
+h1{margin:0;font-weight:800;letter-spacing:-.035em;line-height:1.05}.hero{font-size:clamp(1.8rem,6.5vw,2.7rem)}.g{background:linear-gradient(90deg,#5b3df5,#c04dff,#ff5d8f,#5b3df5);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 5s linear infinite}@keyframes sh{to{background-position:200% center}}
+.sub{margin-top:6px;color:var(--mu);font-weight:600}
+.bento{flex:1;min-height:0;display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:12px}
+.tile{position:relative;overflow:hidden;border:1.5px solid #fff;text-align:left;padding:18px;border-radius:30px;color:var(--ink);font:inherit;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 22px 36px -20px #6c5ce788;transition:transform .4s var(--sp)}
+.tile:hover{transform:translateY(-4px)}.tile:active{transform:scale(.96)}
+.t1{grid-row:span 2;background:linear-gradient(150deg,#6a4dff,#c04dff 55%,#ff5d9a);box-shadow:0 26px 40px -18px #8a4dffcc}.t2{background:linear-gradient(150deg,#12c0e8,#2f6bff);box-shadow:0 26px 40px -18px #2f8bffcc}.t3{background:linear-gradient(150deg,#ffb23d,#ff5471);box-shadow:0 26px 40px -18px #ff6b5acc}
+.tile{color:#fff!important;border-color:#ffffff80!important}.tile h3{text-shadow:0 2px 8px #0003}.tile p{color:#ffffffe6!important}.tile::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 70% at 0 0,#ffffff59,transparent 55%);pointer-events:none}.tile .go{color:var(--ink)}
+.tile i{font-style:normal;font-size:clamp(2.2rem,9vw,3.6rem);animation:bob 4s ease-in-out infinite;display:block;line-height:1}
+.tile h3{margin:0;font-size:clamp(1.2rem,4.6vw,1.75rem);font-weight:800;letter-spacing:-.025em}.tile p{margin:3px 0 0;color:var(--mu);font-size:.9rem;font-weight:600;line-height:1.3}
+.go{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;box-shadow:0 8px 14px -6px #6c5ce766;transition:transform .4s var(--sp)}.tile:hover .go{transform:translateX(4px) rotate(-30deg)}
+.mp{flex:none;padding:13px 15px}.mh{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.85rem;color:var(--mu);margin-bottom:9px}.pill.sm{padding:4px 10px;font-size:.8rem}
+.map{display:grid;grid-template-columns:repeat(30,1fr);gap:3px}.map b{aspect-ratio:1;border-radius:4px;background:#d9d2f7;cursor:pointer;transition:transform .25s var(--sp)}.map b:hover{transform:scale(1.6)}.map .d1{background:linear-gradient(135deg,#ffb46b,#ff8a5c)}.map .d2{background:linear-gradient(135deg,#3fd9a4,#2bb3d9)}
+.lb{font-weight:800;font-size:.95rem;margin:0 0 9px;color:var(--mu);letter-spacing:.02em;text-transform:uppercase}.sec{flex:none;padding:15px}
+.seg{display:flex;gap:6px;padding:5px;background:#ffffff80;border-radius:20px}.seg button{flex:1;padding:13px 4px;border:0;border-radius:16px;background:transparent;font:inherit;font-weight:800;font-size:1.02rem;color:var(--mu);cursor:pointer;transition:.3s var(--sp)}.seg .on{background:#fff;color:var(--ink);box-shadow:0 6px 14px -6px #6c5ce766;transform:scale(1.04)}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.cb{padding:13px 6px;border-radius:20px;border:1.5px solid #fff;background:#ffffff95;font:inherit;font-weight:800;font-size:1.05rem;color:var(--ink);cursor:pointer;transition:.3s var(--sp)}.cb small{display:block;font-weight:600;color:var(--mu);font-size:.78rem}
+.cb.on{background:linear-gradient(135deg,var(--p),var(--k));color:#fff;border-color:transparent;transform:scale(1.04);box-shadow:0 12px 20px -10px #6c5ce7aa;text-shadow:0 1px 2px #0003}.cb.on small{color:#ffffffd9}
+.cta{flex:none;padding:19px;border:0;border-radius:24px;background:linear-gradient(135deg,#5b3df5,#c04dff 55%,#ff5d8f);color:#fff;font:inherit;font-weight:800;font-size:1.15rem;cursor:pointer;box-shadow:0 20px 30px -12px #6c5ce799;text-shadow:0 1px 2px #0003;transition:transform .3s var(--sp)}.cta:active{transform:scale(.96)}.sp{flex:1}
+.pb{flex:1;height:10px;border-radius:9px;background:#ffffffaa;overflow:hidden}.pb i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--p),var(--k));transition:width .5s}.pb.tm i{background:linear-gradient(90deg,#ffb46b,#ff5c8a)}
+.stage{position:relative;flex:1;min-height:0;perspective:1400px}
+.bk{position:absolute;inset:0;border-radius:32px;background:#ffffff90;box-shadow:0 14px 28px -14px #6c5ce744}.b1{transform:translateY(12px) scale(.95);opacity:.7}.b2{transform:translateY(22px) scale(.9);opacity:.4}
+.c{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .65s var(--sp),opacity .35s;cursor:pointer}
+.c.f{transform:rotateY(180deg)}.c.r{transform:translateX(130%) rotate(22deg);opacity:0}.c.l{transform:translateX(-130%) rotate(-22deg);opacity:0}
+.s{position:absolute;inset:0;border-radius:32px;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:64px 26px 48px;display:flex;overflow:auto;text-align:center;box-shadow:0 30px 50px -24px #6c5ce777}.s>div:not(.h){margin:auto;width:100%}
+.ff{border:2.5px solid transparent;background:linear-gradient(#fff,#fffefe) padding-box,linear-gradient(135deg,var(--a),var(--b)) border-box}
+.bc{transform:rotateY(180deg);background:linear-gradient(135deg,var(--a),var(--b));color:#fff}
+.n{position:absolute;top:20px;left:22px;font-weight:800;font-size:.9rem;padding:6px 13px;border-radius:99px;background:#6c5ce71a;color:var(--p)}.bc .n{background:#ffffff33;color:#fff}
+.q{font-weight:800;line-height:1.38;letter-spacing:-.015em}.a{font-weight:700;line-height:1.9;text-shadow:0 1px 3px #0002}
+.h{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:.9rem;font-weight:600;color:var(--mu);animation:pls 2.2s ease-in-out infinite}
+.fx{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em;line-height:1.15}.fx i{font-style:normal;padding:0 .2em}.fx i:first-child{border-bottom:.09em solid currentColor}
+.row{display:flex;gap:12px;flex:none}.bt{flex:1;height:60px;border:0;border-radius:22px;font:inherit;font-weight:800;font-size:1.12rem;color:#fff;cursor:pointer;text-shadow:0 1px 2px #0003;transition:transform .3s var(--sp)}.bt:active{transform:scale(.94)}
+.no{background:linear-gradient(135deg,#ff9248,#ff3d77);box-shadow:0 16px 24px -12px #ff4f8baa}.ok{background:linear-gradient(135deg,#1fd6a0,#12a8e0);box-shadow:0 16px 24px -12px #1aa6c9aa}
+.qq{flex:none;padding:22px 20px;max-height:38%;overflow:auto;display:flex}.qq .q{margin:auto;width:100%}
+.opts{flex:1;min-height:0;display:grid;grid-template-rows:repeat(4,minmax(0,1fr));gap:10px}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;padding:8px 14px;border-radius:22px;border:1.5px solid #fff;background:var(--gl);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font:inherit;font-weight:700;font-size:clamp(.98rem,3.7vw,1.22rem);line-height:1.5;color:var(--ink);cursor:pointer;overflow:auto;animation:rise .5s var(--sp) both;transition:transform .3s var(--sp),border-color .2s}
+.opt b{flex:none;width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:#6c5ce71a;color:var(--p);font-size:.95rem}.opt span{margin:auto 0}.opt:hover{transform:translateX(4px);border-color:var(--p)}
+.opt.okk{background:#d7fbea;border-color:#25c98e}.opt.okk b{background:#25c98e;color:#fff}.opt.bad{background:#ffe1e8;border-color:#ff4f8b;animation:sk .4s}.opt.bad b{background:#ff4f8b;color:#fff}
+.mid{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:14px}.mid .e{font-size:4.5rem;animation:bob 3s ease-in-out infinite}
+.st{display:flex;gap:10px;width:100%}.st div{flex:1;padding:14px 6px;font-weight:800;font-size:1.4rem}.st small{display:block;font-weight:600;color:var(--mu);font-size:.78rem}
+.bd{display:inline-block;margin:3px;padding:7px 13px;border-radius:99px;background:#fff;box-shadow:0 6px 14px -6px #6c5ce755;font-weight:800;font-size:.88rem}
+.cf{position:fixed;font-size:1.6rem;z-index:9;pointer-events:none;animation:cf .9s ease-out forwards}@keyframes cf{to{transform:translate(var(--x),var(--y)) rotate(360deg);opacity:0}}
+.mesh{background:linear-gradient(180deg,#fcfbf8,#f5f3fa)}.mesh i{opacity:.3;filter:blur(100px)}
+.mesh i:nth-child(1){background:#d3ccff}.mesh i:nth-child(2){background:#ffdccb}.mesh i:nth-child(3){background:#cdece2}.mesh i:nth-child(4){background:#fff1c9}
+.dots{background-image:linear-gradient(#7f93d030 1px,transparent 1px),linear-gradient(90deg,#7f93d030 1px,transparent 1px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse at 50% 45%,#000 30%,transparent 88%);mask-image:radial-gradient(ellipse at 50% 45%,#000 30%,transparent 88%)}
+.grain{opacity:.05}
+.spot{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .8s;background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),#6c5ce713,transparent 70%)}
+.lit{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .8s;background-image:linear-gradient(#5b3df54d 1px,transparent 1px),linear-gradient(90deg,#5b3df54d 1px,transparent 1px);background-size:30px 30px;-webkit-mask-image:radial-gradient(230px circle at var(--mx,50%) var(--my,50%),#000,transparent);mask-image:radial-gradient(230px circle at var(--mx,50%) var(--my,50%),#000,transparent)}
+body.pt .spot,body.pt .lit{opacity:1}
+.mesh i{translate:calc(var(--px,0)*-24px) calc(var(--py,0)*-18px);transition:translate 1.2s ease-out}
+.scr{animation:none}.scr>*{animation:rise .6s var(--sp) both}.scr>:nth-child(2){animation-delay:.06s}.scr>:nth-child(3){animation-delay:.12s}.scr>:nth-child(4){animation-delay:.18s}.scr>:nth-child(5){animation-delay:.24s}
+.tile{animation:rise .7s var(--sp) both}.t1{animation-delay:.14s}.t2{animation-delay:.22s}.t3{animation-delay:.3s}
+.tile::after{content:"";position:absolute;inset:0;background:radial-gradient(220px circle at var(--tx,50%) var(--ty,-60%),#ffffff59,transparent 65%);opacity:0;transition:opacity .35s;pointer-events:none}.tile:hover::after{opacity:1}
+@keyframes pop{40%{transform:scale(1.2)}}.pill.pop{animation:pop .5s var(--sp)}
+button:focus-visible{outline:3px solid #5b3df580;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*,*::before{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+:root{--k:#8f6bff}.g{background-image:linear-gradient(90deg,#4338ca,#7c5cf0,#4338ca)}
+.cb{background:#ffffffb0;border:2px solid #fff;color:var(--ink);position:relative}
+.cb.on{background:#eef0ff;color:#3a2fb0;border-color:#5b3df5;transform:none;box-shadow:0 8px 16px -10px #5b3df566;text-shadow:none}.cb.on small{color:#6b64b8}.cb.on::after{content:"✓";position:absolute;top:6px;right:9px;font-size:.8rem;color:#5b3df5}
+.cta{background:linear-gradient(135deg,#4338ca,#6d5bf0);box-shadow:0 16px 26px -14px #4338caaa}
+.scr{animation:fd .22s ease both}.scr>*,.tile,.opt{animation:none}@keyframes fd{from{opacity:0}}main[data-still="1"] .scr{animation:none}
+@media(max-width:560px){.map{grid-template-columns:repeat(20,1fr)}.s{padding:58px 16px 44px}.qq{padding:16px 14px}.opt{padding:6px 11px;gap:10px}.opt b{width:30px;height:30px}}
+@media(max-width:420px){.pill{padding:8px 11px;font-size:.85rem}.logo{font-size:1rem}.hd{gap:6px}.row{gap:9px}.bt{height:56px;font-size:1.02rem}.cta{padding:17px;font-size:1.05rem}.sec{padding:12px}.cb{padding:11px 4px;font-size:.98rem}}
+@media(max-height:640px){.hero{font-size:1.55rem}.sub{display:none}.tile i{font-size:2rem}.sec{padding:10px 12px}.mp{padding:9px 12px}.seg button{padding:10px 4px}.cb{padding:9px 4px}.lb{margin-bottom:6px}.scr{gap:9px}}
+.seg{background:none;padding:0;gap:8px}.seg button{position:relative;border:2px solid #fff;background:#ffffffb0;border-radius:20px;color:var(--ink);transform:none}.seg .on{background:#eef0ff;color:#3a2fb0;border-color:#5b3df5;box-shadow:0 8px 16px -10px #5b3df566;transform:none}.seg .on::after{content:"✓";position:absolute;top:5px;right:9px;font-size:.75rem;color:#5b3df5}
+.nm{flex:none;border:1.5px solid #fff;background:#ffffffb8;border-radius:18px;padding:13px 16px;font:inherit;font-weight:800;font-size:1.1rem;color:var(--ink);outline:none;user-select:text;-webkit-user-select:text;width:100%}.nm:focus{border-color:#5b3df5}
+.gr{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:.92rem;font-weight:700}.gr b{width:52px;flex:none}.gr span{min-width:84px;text-align:right;color:var(--mu);flex:none}
+.sec.lst{flex:1;min-height:0;overflow:auto}.rr{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #6c5ce71a;font-weight:700}.rr:last-child{border:0}.rr span{color:var(--mu)}
+@media(max-width:420px){.tx{display:none}}
+.tgl{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 4px;cursor:pointer}.tgl+.tgl{border-top:1px solid #6c5ce71a}.tgl b{display:block}.tgl small{color:var(--mu);font-weight:600;font-size:.8rem}
+.sw{flex:none;width:48px;height:29px;border-radius:99px;background:#d6d1ee;position:relative;transition:background .3s}.sw::after{content:"";position:absolute;top:3px;left:3px;width:23px;height:23px;border-radius:50%;background:#fff;box-shadow:0 2px 6px #0003;transition:left .3s var(--sp)}.sw.on{background:#5b3df5}.sw.on::after{left:22px}
+.cta:disabled{opacity:.45;box-shadow:none;cursor:default}
+.li{padding:12px 4px;border-bottom:1px solid #6c5ce71a;cursor:pointer}.li:last-child{border:0}.lq{font-weight:800}.la{display:none;margin-top:8px;padding:10px 12px;border-radius:14px;background:#eef0ff;font-weight:600;line-height:1.9}.li.o .la{display:block}
+@media(max-height:700px){.tgl small{display:none}.tgl{padding:7px 4px}}</style></head><body>
+<div class="mesh"><i></i><i></i><i></i><i></i></div><div class="dots"></div><div class="spot"></div><div class="lit"></div><div class="grain"></div>
+<main id="app"></main>
+<script>
+const D=`Формула площі і діагоналі квадрата|S = a², S = {d²/2}; діагональ d = a√2
+На чому лежить центр вписаного і описаного кола навколо Δ?|Вписаного — перетин бісектрис. Описаного — перетин серединних перпендикулярів.
+Косинус — це відношення?|Прилеглого катета до гіпотенузи
+Центром кола, описаного навколо прямокутного Δ є?|Середина гіпотенузи
+Площа повної поверхні конуса, циліндра, куба?|Куб: S = 6a². Конус: S = Sб + Sо = πR(R + l). Циліндр: S = 2Sо + Sб = 2πR(R + h).
+Що таке складене число?|Число, яке має більше двох дільників (не лише 1 і саме себе).
+В яких випадках треба знаходити ОДЗ?|Корінь, log, дріб
+Коли графік функції симетричний відносно осі Oy?|Коли f(−x) = f(x) — функція парна.
+Сума протилежних кутів вписаного чотирикутника?|Дорівнює 180°
+Навести приклад функції, яка рухається вправо на 7.|y = (x − 7)² (загалом y = f(x − 7))
+Коли застосовується розміщення A?|Беруть не всі елементи, порядок важливий.
+Що це таке і що можна знайти? (x−a)² + (y−b)² = R²|Рівняння кола: центр (a; b), R — радіус.
+Що означають екстремуми функцій?|Це максимуми й мінімуми: y_min, y_max.
+Що таке розмах, мода, медіана?|Розмах — різниця найбільшого й найменшого. Мода — найчастіше число. Медіана — серединне значення (для парної кількості — середнє двох центральних).
+Властивість медіани в Δ?|Медіани діляться в точці перетину у відношенні 2 : 1 від вершини і ділять Δ на рівновеликі (S = S).
+Як виглядає логарифмічна функція і її властивості?|y = logₐx, x > 0, графік через (1; 0). a > 1 — зростає, 0 < a < 1 — спадає. Область значень — усі дійсні числа.
+Що буде cos x = −1 ?|x = π + 2πn
+Яке можливе розташування центра описаного кола Δ?|Гострокутний — всередині. Тупокутний — зовні. Прямокутний — на середині сторони (гіпотенузи).
+В якому Δ центри вписаного і описаного кіл збігаються?|У рівносторонньому
+Знайти 9% від 300.|300 — 100%, x — 9% → x = 27
+Якщо є первісна, то як взнати початкову функцію?|Знайти похідну первісної.
+Медіана в прямокутному Δ?|Медіана до гіпотенузи дорівнює її половині: m = {c/2}.
+Що означає інтеграл?|Площу криволінійної трапеції.
+Що таке точки max, min?|x_min, x_max — точки мінімуму й максимуму (значення x).
+Коли можна вписати коло в 4-кутник?|Коли суми довжин протилежних сторін рівні.
+Чому дорівнює радіус вписаного кола в трапецію?|r = {h/2} (половині висоти)
+Точка лежить на площині Oxy. Точка лежить на осі Oy.|Oxy: (x; y; 0). Oy: (0; y; 0).
+Скільки відсотків становить 26 від 65?|{26/65} · 100% = 40%
+Розвʼязати: log₈(x² − 7x + 4) = log₈(x − 3)|x² − 8x + 7 = 0 → x = 1 або x = 7. ОДЗ: x > 3, тож x = 7.
+Знайти S трапеції, обмеженої графіками y = x² + 2 і y = x + 4|S = ∫(x + 2 − x²)dx від −1 до 2 = {9/2} = 4,5
+Як знайти довжину дуги кола?|l = {πRα/180}
+Де лежить центр описаного кола навколо рівностороннього Δ?|У точці перетину висот, медіан і бісектрис.
+Де лежить центр описаного кола навколо рівнобедреної трапеції? І який радіус?|На прямій, що сполучає середини основ. Радіус = радіусу кола, описаного навколо ΔABD.
+Чи правильне твердження: центри вписаного і описаного кіл правильного многокутника збігаються?|Так
+Радіуси вписаного й описаного кола навколо правильного Δ?|r = {a/2√3}, R = {a/√3}
+Яка Sб куба? Sпп?|Sб = 4a², Sпп = 6a²
+Які є тіла обертання?|Циліндр, конус, куля
+sin x = −1|x = −{π/2} + 2πn
+Яка властивість внутрішніх різносторонніх кутів?|При паралельних прямих вони рівні.
+Як знайти прискорення матеріальної точки?|a(t) = v′(t) = x″(t)
+Що таке екстремуми відносно похідної?|У точці екстремуму похідна = 0 і змінює знак (сама рівність нулю ще не гарантує екстремум).
+Як і де застосовується теорема косинусів?|c² = a² + b² − 2ab·cosγ — для сторони Δ, якщо відомі дві сторони й кут між ними.
+Формули площі Δ (універсальні)?|S = {1/2}·a·b·sinγ, S = {1/2}·a·hₐ
+Як виглядає формула рівняння кола і що з нього знаходимо?|(x−a)² + (y−b)² = R² — центр (a; b) і радіус R.
+Розвʼязати систему нерівностей: 9x + 8 > 4(x − 2) − 14 і {x+9/4} ≤ 3 − {3−x/6}|Перша: x > −6. Друга: x ≤ 3. Відповідь: (−6; 3].
+Яка площа кола? Сектора?|S = πr². Sсект = {πR²α/360}.
+Розвʼязати: −12 ≤ x − 4 ≤ 20|−8 ≤ x ≤ 24
+Знайти ОДЗ функції y = {7x/x² + 4x}|x² + 4x ≠ 0 → x ≠ 0 і x ≠ −4
+Як виглядають нулі функцій на графіку?|Точки перетину з віссю Ox.
+Які функції зростають і які спадають? Навести приклади.|Зростає: y = x³. Спадає: y = −x³.
+Куди рухаються функції: y = {1/x+2} − 1, y = 4 − (x−3)², y = √(x−2)?|{1/x+2} − 1: вліво на 2, вниз на 1. 4 − (x−3)²: вправо на 3, вгору на 4 (вітки вниз). √(x−2): вправо на 2.
+Розвʼязати x(x − 10) ≥ 5(5 − 2x)|x² − 10x ≥ 25 − 10x → x² ≥ 25 → x ≤ −5 або x ≥ 5.
+Як знайти v, t?|v = {s/t}, t = {s/v}, s = v·t
+Знайти a₃₀ і b₃₀ (розписати)|a₃₀ = a₁ + 29d, b₃₀ = b₁ · q²⁹
+Розвʼязати ∣x − 7∣ = 2 і ∣x∣ = 4|x = 5 або x = 9; x = 4 або x = −4
+Як знайти cos 540°?|cos(540° − 360°) = cos 180° = −1
+Чи вірне твердження: радіус кола, вписаного в квадрат, у 2 р. менший від радіуса описаного?|Перевір: r = {a/2}, R = {a√2/2} → менший у √2 рази, не у 2.
+На чому лежить центр кола, описаного навколо квадрата?|На перетині діагоналей.
+Чому дорівнює радіус кола, описаного навколо прямокутника?|Половині діагоналі: R = {d/2}
+Чому симетрична парна і непарна функція?|Парна — осі y. Непарна — початку координат.
+Властивості ромба, трапеції?|Ромб: діагоналі перпендикулярні, діляться навпіл, є бісектрисами кутів. Трапеція: основи паралельні, середня лінія = {a + b/2}.
+Якщо діагоналі прямокутника взаємно перпендикулярні, то це…?|Квадрат
+Вписаний кут — це?|Кут, вершина якого лежить на колі, а сторони перетинають коло. Дорівнює половині дуги, на яку спирається.
+Чи можна навколо трапеції описати коло? І яка буде?|Так, рівнобічна.
+Чи вірно, що навколо будь-якого прямокутника можна описати коло?|Так
+Чому дорівнює середня лінія Δ і трапеції?|Δ: половині паралельної сторони. Трапеція: {a + b/2}.
+Як застосувати теорему Фалеса?|Паралельні прямі, що перетинають сторони кута, відтинають на них пропорційні відрізки.
+Назвати у прямокутному Δ (у просторі), що є?|Один катет — перпендикуляр, гіпотенуза — похила, другий катет — проєкція.
+Яка площа прямокутника, квадрата?|S = ab; S = a²
+Що таке суміжні і вертикальні кути?|Суміжні — сума 180°. Вертикальні — рівні.
+Що таке перпендикулярні прямі?|Прямі, що перетинаються під кутом 90°.
+Як знайти дискримінант?|D = b² − 4ac
+Відповідні кути, які властивості?|При паралельних прямих вони рівні.
+Що таке дотична?|Пряма, що має з колом одну спільну точку і ⊥ до радіуса в точці дотику.
+Якщо кола мають внутрішній дотик, то як знайти відстань OO₁?|OO₁ = R − r
+У яких функціях використовується кутовий коефіцієнт?|y = kx + b (k = tgα) і дотична до графіка (k = f′(x₀)).
+Площа сектора?|S = {πR²α/360}
+Що таке дійсні числа?|Раціональні та ірраціональні.
+Що таке десятковий, натуральний логарифм?|lg — з основою 10. ln — з основою e.
+Що таке аргумент?|Незалежна змінна функції (x); у тригонометрії також кут.
+Якщо в точці x₀ знак f′(x) змінюється з + на −, то x₀ — …|Точка максимуму.
+Коли є прямолінійний рух і відома швидкість, то переміщення = ?|S = ∫v(t)dt від t₁ до t₂
+Діаметр, що проходить через середину хорди — …|Перпендикулярний до неї.
+Який елемент вимірюється половиною дуги, на яку він спирається?|Вписаний кут
+Назвати нерівність Δ.|Кожна сторона Δ менша від суми двох інших.
+Яка площа довільного 4-кутника?|S = {1/2}·d₁·d₂·sinφ
+Якщо в 4-кутнику суми довжин протилежних сторін рівні, то…|У нього можна вписати коло.
+Яка сума протилежних кутів вписаного 4-кутника?|180°
+У якої фігури 2 діагоналі ділять її на 4 рівновеликі Δ?|Паралелограм
+Яку призму називають прямою?|Якщо бічні ребра ⊥ до площини основи.
+Розгортка якої фігури: бічні грані — трикутники, основа — многокутник?|Піраміди
+За яких умов у довільний 4-кутник можна вписати коло?|Суми протилежних сторін рівні: a + c = b + d
+Вписане коло в прямокутний Δ: радіус?|r = {a + b − c/2}
+Сума кутів опуклого n-кутника?|180°·(n − 2)
+Якщо похідна f′(x) > 0, то функція…|На цьому проміжку зростає.
+Товар коштував 1000 грн. Ціну підняли на 20%, а через місяць знизили на 20%. Яка ціна стала?|1) 1000 + 200 = 1200 грн. 2) 20% від 1200 = 240. 3) 1200 − 240 = 960 грн.
+Чим відрізняється «точка максимуму» від «максимуму функції»? Де x, а де y?|Точка максимуму — це x, максимум функції — це y.
+Що означає, коли інтеграл від’ємний?|Фігура лежить нижче осі Ox (сама площа завжди додатна — беруть модуль).
+Серед паралелограмів (прямокутник, ромб, квадрат) у який завжди можна вписати коло, але не завжди описати?|У ромб
+Навколо якого прямокутника неможливо описати коло?|Навколо будь-якого можна описати.
+Описане коло навколо квадрата: R = ?|R = {d/2} = {a√2/2}
+Вписане й описане коло навколо трапеції?|Описати — лише навколо рівнобічної; R як для ΔABD: R = {BD/2sinA}. Вписати — якщо сума основ дорівнює сумі бічних сторін (a + b = c + d).
+Чи однакові поняття локальний максимум і найбільше значення функції?|Ні. Локальний max — «горбок», а найбільше значення може бути на кінцях.
+y = {1/x² − 4x + 9}: при якому x функція набуває найбільшого значення?|Знаменник має бути найменшим: x₀ = {4/2} = 2.
+Як знайти прискорення миттєвої точки?|a(t) = v′(t) = x″(t)
+Яка фігура утвориться, якщо прямокутний Δ обертати навколо катета?|Конус
+Основна тригонометрична тотожність?|sin²α + cos²α = 1
+Чому дорівнює tgα?|tgα = {sinα/cosα}; у прямокутному Δ — відношення протилежного катета до прилеглого.
+Теорема Піфагора?|У прямокутному Δ: a² + b² = c².
+Теорема синусів?|{a/sinα} = {b/sinβ} = {c/sinγ} = 2R
+Радіуси описаного й вписаного кола довільного Δ?|R = {abc/4S}, r = {S/p}, де p — півпериметр.
+Площа трапеції, паралелограма, ромба?|Трапеція: S = {a + b/2}·h. Паралелограм: S = a·h. Ромб: S = {1/2}·d₁·d₂.
+Формули коренів квадратного рівняння і теорема Вієта?|x = {−b ± √D/2a}; x₁ + x₂ = −{b/a}, x₁·x₂ = {c/a}
+Властивості логарифмів?|logₐ(bc) = logₐb + logₐc; logₐ({b/c}) = logₐb − logₐc; logₐbⁿ = n·logₐb
+Суми n перших членів арифметичної та геометричної прогресій?|Sₙ = {a₁ + aₙ/2}·n; Sₙ = {b₁(qⁿ − 1)/q − 1}
+Похідні основних функцій?|(xⁿ)′ = n·xⁿ⁻¹; (sin x)′ = cos x; (cos x)′ = −sin x; (eˣ)′ = eˣ; (ln x)′ = {1/x}
+Первісна степеневої функції?|∫xⁿdx = {xⁿ⁺¹/n+1} + C, де n ≠ −1
+Формула Ньютона–Лейбніца?|∫ від a до b f(x)dx = F(b) − F(a), де F — первісна f.
+Обʼєми куба, призми, циліндра, конуса, піраміди, кулі?|Призма й циліндр: V = S·h. Конус і піраміда: V = {1/3}·S·h. Куля: V = {4/3}πR³.
+Класичне означення ймовірності?|P(A) = {m/n}: m — сприятливі наслідки, n — усі рівноможливі.`.split("\n").map((l,i)=>{const k=l.indexOf("|");return{q:l.slice(0,k),a:l.slice(k+1),i}});
+const G=[8,8,8,8,11,6,8,9,8,9,11,9,11,9,7,11,10,8,8,6,11,8,11,11,8,8,11,6,11,11,9,8,8,9,9,10,11,10,7,11,11,9,9,9,9,9,9,8,7,9,9,9,6,9,8,10,8,8,8,9,8,8,8,8,8,8,8,10,6,7,7,8,7,8,8,7,9,8,11,7,11,11,8,8,7,9,8,8,8,10,10,8,8,8,11,6,11,11,8,8,8,8,11,11,11,11,10,8,8,9,9,8,8,11,9,11,11,11,11,11],QZ={"0":["S = a², d = a√2","S = 2a, d = a√2","S = a², d = a√3","S = {a²/2}, d = 2a"],"1":["Вписаного — перетин бісектрис; описаного — перетин серединних перпендикулярів","Вписаного — перетин висот; описаного — перетин бісектрис","Вписаного — перетин медіан; описаного — перетин висот","Обох — перетин медіан"],"2":["Прилеглого катета до гіпотенузи","Протилежного катета до гіпотенузи","Протилежного катета до прилеглого","Прилеглого катета до протилежного"],"3":["Середина гіпотенузи","Точка перетину висот","Вершина прямого кута","Точка перетину бісектрис"],"4":["Куб: 6a²; конус: Sб + Sо; циліндр: 2Sо + Sб","Куб: 4a²; конус: Sб + Sо; циліндр: Sб + Sо","Куб: 6a²; конус: Sб + 2Sо; циліндр: Sб + Sо","Куб: 6a; конус: Sб; циліндр: 2Sб + Sо"],"5":["Має більше двох дільників","Ділиться лише на 1 і на себе","Ділиться лише на 2","Є парним числом"],"6":["Корінь, логарифм, дріб","Лише дріб","Лише многочлен","Завжди, у кожній задачі"],"7":["Осі Oy: f(−x) = f(x)","Осі Ox: f(−x) = f(x)","Початку координат: f(−x) = f(x)","Осі Oy: f(−x) = −f(x)"],"8":["180°","90°","360°","270°"],"9":["y = (x − 7)²","y = (x + 7)²","y = x² + 7","y = x² − 7"],"10":["Беруть не всі елементи, порядок важливий","Беруть усі елементи, порядок важливий","Беруть не всі елементи, порядок неважливий","Беруть усі елементи, порядок неважливий"],"11":["Рівняння кола: центр (a; b), радіус R","Рівняння кола: центр (0; 0), радіус R²","Рівняння параболи з вершиною (a; b)","Рівняння кола: центр (−a; −b), діаметр R"],"12":["Максимуми та мінімуми функції","Точки перетину з осями","Нулі функції","Точки розриву функції"],"14":["Діляться у відношенні 2 : 1 від вершини","Діляться у відношенні 3 : 2 від вершини","Діляться у відношенні 3 : 1 від вершини","Діляться у відношенні 1 : 1"],"16":["x = π + 2πn","x = 2πn","x = {π/2} + 2πn","x = πn"],"17":["Гострокутний — всередині, тупокутний — зовні, прямокутний — на гіпотенузі","Завжди всередині трикутника","Гострокутний — зовні, тупокутний — всередині","Завжди зовні трикутника"],"18":["У рівносторонньому","У рівнобедреному","У прямокутному","У тупокутному"],"19":["27","30","33","2,7"],"20":["Знайти похідну первісної","Знайти інтеграл первісної","Помножити первісну на x","Прирівняти первісну до нуля"],"21":["m = {c/2}","m = c","m = {c/3}","m = 2c"],"22":["Площу криволінійної трапеції","Похідну функції","Нулі функції","Найбільше значення функції"],"23":["x_min, x_max — значення x","y_min, y_max — значення y","Нулі функції","Точки перетину з Oy"],"24":["Суми протилежних сторін рівні","Суми протилежних кутів 180°","Діагоналі рівні","Усі кути рівні"],"25":["r = {h/2}","r = h","r = {h/3}","r = 2h"],"26":["(x; y; 0) та (0; y; 0)","(x; 0; 0) та (0; y; 0)","(x; y; 0) та (x; 0; 0)","(0; 0; z) та (0; y; 0)"],"27":["40%","25%","45%","2,5%"],"28":["x = 7","x = 1","x = 1 і x = 7","x = 3"],"29":["{9/2}","4","{7/2}","6"],"30":["l = {πRα/180}","l = {πR²α/360}","l = 2πR","l = {πRα/360}"],"31":["У точці перетину висот, медіан і бісектрис","На середині сторони","Поза трикутником","У вершині"],"33":["Так","Ні","Лише для трикутників","Лише для парної кількості сторін"],"34":["r = {a/2√3}, R = {a/√3}","r = {a/√3}, R = {a/2√3}","r = {a/2}, R = {a/√3}","r = {a/√3}, R = a"],"35":["Sб = 4a², Sпп = 6a²","Sб = 6a², Sпп = 4a²","Sб = 4a, Sпп = 6a","Sб = a², Sпп = 6a²"],"36":["Циліндр, конус, куля","Призма, піраміда, куля","Куб, конус, циліндр","Піраміда, конус, циліндр"],"37":["x = −{π/2} + 2πn","x = {π/2} + 2πn","x = π + 2πn","x = −π + 2πn"],"38":["Рівні при паралельних прямих","Сума дорівнює 180°","Завжди дорівнюють 90°","Завжди рівні 60°"],"39":["a(t) = v′(t) = x″(t)","a(t) = v(t) = x′(t)","a(t) = x′(t)","a(t) = ∫v(t)dt"],"40":["Похідна = 0 і змінює знак","Похідна завжди додатна","Похідна не існує","Похідна дорівнює 1"],"41":["c² = a² + b² − 2ab·cosγ","c² = a² + b² + 2ab·cosγ","c² = a² − b² − 2ab·cosγ","c = a + b − 2ab·cosγ"],"42":["S = {1/2}ab·sinγ та S = {1/2}a·hₐ","S = ab·sinγ та S = a·hₐ","S = {1/2}ab·cosγ та S = {1/2}a·hₐ","S = {1/2}ab та S = a·hₐ"],"44":["(−6; 3]","[−6; 3)","(−∞; −6)","(3; +∞)"],"45":["S = πr², Sсект = {πR²α/360}","S = 2πr, Sсект = {πRα/180}","S = πr², Sсект = {πRα/180}","S = πr², Sсект = {πR²α/180}"],"46":["−8 ≤ x ≤ 24","−16 ≤ x ≤ 16","8 ≤ x ≤ 24","−12 ≤ x ≤ 20"],"47":["x ≠ 0 і x ≠ −4","x ≠ 0","x ≠ 4","x > 0"],"48":["Точки перетину з віссю Ox","Точки перетину з віссю Oy","Вершини графіка","Точки екстремуму"],"49":["Зростає y = x³, спадає y = −x³","Зростає y = −x³, спадає y = x³","Обидві зростають","Обидві спадають"],"51":["x ≤ −5 або x ≥ 5","−5 ≤ x ≤ 5","x ≥ 5","x ≤ −5"],"52":["v = {s/t}, t = {s/v}","v = s·t, t = {v/s}","v = {t/s}, t = {v/s}","v = s − t, t = s − v"],"53":["a₃₀ = a₁ + 29d, b₃₀ = b₁·q²⁹","a₃₀ = a₁ + 30d, b₃₀ = b₁·q³⁰","a₃₀ = a₁ + 29d, b₃₀ = b₁ + 29q","a₃₀ = a₁·29d, b₃₀ = b₁·q³⁰"],"54":["x = 5 або x = 9; x = 4 або x = −4","x = 5; x = 4","x = −5 або x = −9; x = ±4","x = 9; x = −4"],"55":["−1","1","0","−{1/2}"],"56":["Ні: у √2 раза","Так: у 2 рази","Ні: у √3 раза","Так: у 4 рази"],"57":["На перетині діагоналей","На середині сторони","У вершині","Поза квадратом"],"58":["Половині діагоналі: R = {d/2}","Діагоналі: R = d","Половині сторони","Півсумі сторін"],"59":["Парна — осі y, непарна — початку координат","Парна — осі x, непарна — осі y","Парна — початку координат, непарна — осі y","Обидві — осі y"],"61":["Квадрат","Ромб","Прямокутник","Трапеція"],"62":["Вершина на колі; дорівнює половині дуги","Вершина в центрі; дорівнює дузі","Вершина на колі; дорівнює дузі","Вершина в центрі; дорівнює половині дуги"],"63":["Так, рівнобічної","Так, будь-якої","Ні, ніколи","Лише прямокутної"],"64":["Так","Ні","Лише квадрата","Лише якщо a = b"],"65":["Δ: половині сторони; трапеція: {a + b/2}","Δ: стороні; трапеція: a + b","Δ: половині сторони; трапеція: {a − b/2}","Δ: третині сторони; трапеція: {a + b/3}"],"67":["Катет — перпендикуляр, гіпотенуза — похила, інший катет — проєкція","Гіпотенуза — перпендикуляр, катет — похила","Обидва катети — похилі","Гіпотенуза — проєкція"],"68":["S = ab; S = a²","S = 2(a + b); S = 4a","S = a + b; S = a²","S = ab; S = 2a"],"69":["Суміжні — сума 180°, вертикальні — рівні","Суміжні — рівні, вертикальні — сума 180°","Обидві пари — рівні","Обидві пари — сума 180°"],"70":["Перетинаються під кутом 90°","Не перетинаються","Перетинаються під кутом 45°","Збігаються"],"71":["D = b² − 4ac","D = b² + 4ac","D = 4ac − b","D = b − 4ac"],"72":["Рівні при паралельних прямих","Сума дорівнює 180°","Завжди 90°","Дорівнюють 60°"],"73":["Пряма з однією спільною точкою з колом","Пряма з двома спільними точками з колом","Пряма, що проходить через центр","Відрізок, що сполучає дві точки кола"],"74":["OO₁ = R − r","OO₁ = R + r","OO₁ = R·r","OO₁ = {R + r/2}"],"75":["Лінійна y = kx + b і дотична до графіка","Квадратична y = ax² + bx + c","Показникова y = aˣ","Обернена пропорційність y = {k/x}"],"76":["S = {πR²α/360}","S = {πRα/180}","S = πR²","S = {πR²α/180}"],"77":["Раціональні та ірраціональні","Лише цілі та натуральні","Лише раціональні","Лише додатні"],"78":["lg — основа 10, ln — основа e","lg — основа e, ln — основа 10","lg — основа 2, ln — основа e","lg — основа 10, ln — основа 2"],"79":["Незалежна змінна функції (x)","Значення функції (y)","Нуль функції","Похідна функції"],"80":["Точка максимуму","Точка мінімуму","Точка перегину","Нуль функції"],"81":["S = ∫v(t)dt","S = v′(t)","S = {v/t}","S = ∫a(t)dt"],"82":["Перпендикулярний до неї","Паралельний до неї","Дорівнює їй","Утворює кут 45°"],"83":["Вписаний кут","Центральний кут","Кут між хордами","Суміжний кут"],"84":["Кожна сторона менша за суму двох інших","Кожна сторона більша за суму двох інших","Сума двох сторін дорівнює третій","Усі сторони рівні"],"85":["S = {1/2}d₁d₂·sinφ","S = d₁d₂·cosφ","S = {1/2}d₁d₂·cosφ","S = d₁d₂"],"86":["В нього можна вписати коло","Навколо нього можна описати коло","Він є паралелограмом","Він є квадратом"],"87":["180°","90°","360°","270°"],"88":["Паралелограм","Трапеція","Довільний чотирикутник","Рівнобічна трапеція"],"89":["Бічні ребра ⊥ площині основи","Бічні ребра паралельні основі","Усі грані — квадрати","В основі правильний многокутник"],"90":["Піраміди","Призми","Конуса","Циліндра"],"91":["Суми протилежних сторін рівні: a + c = b + d","Суми протилежних кутів 180°","Діагоналі перпендикулярні","Усі сторони рівні"],"92":["r = {a + b − c/2}","r = {a + b + c/2}","r = {a + b/2}","r = {ab/c}"],"93":["180°·(n − 2)","180°·n","360°","180°·(n + 2)"],"94":["Зростає","Спадає","Має максимум","Є сталою"],"95":["960 грн","1000 грн","1040 грн","900 грн"],"96":["Точка максимуму — x, максимум функції — y","Точка максимуму — y, максимум функції — x","Це одне й те саме","Обидва — значення x"],"97":["Фігура лежить нижче осі Ox","Фігура лежить зліва від осі Oy","Фігура має нульову площу","Інтеграл не існує"],"98":["У ромб","У прямокутник","У квадрат","У жодну"],"99":["Навколо будь-якого можна описати","Лише навколо квадрата","Лише якщо діагоналі перпендикулярні","Навколо жодного не можна"],"100":["R = {d/2} = {a√2/2}","R = {a/2}","R = a√2","R = {a√3/2}"],"102":["Ні: локальний max — «горбок», а найбільше може бути на кінці","Так, це одне й те саме","Так, але лише для парних функцій","Ні: найбільше значення завжди в точці x = 0"],"103":["x = 2","x = 4","x = −2","x = 9"],"104":["a(t) = v′(t) = x″(t)","a(t) = x′(t)","a(t) = ∫v(t)dt","a(t) = v(t)"],"105":["Конус","Циліндр","Куля","Піраміда"],"106":["sin²α + cos²α = 1","sin α + cos α = 1","sin²α − cos²α = 1","sin α·cos α = 1"],"107":["{sinα/cosα}","{cosα/sinα}","sinα·cosα","{1/cosα}"],"108":["a² + b² = c²","a + b = c","a² − b² = c²","a² + b² = 2c"],"109":["{a/sinα} = {b/sinβ} = {c/sinγ} = 2R","{a/cosα} = {b/cosβ} = {c/cosγ} = 2R","a·sinα = b·sinβ = c·sinγ","{a/sinα} = {b/sinβ} = {c/sinγ} = R"],"110":["R = {abc/4S}, r = {S/p}","R = {abc/S}, r = {S/p}","R = {S/p}, r = {abc/4S}","R = {abc/2S}, r = {S/2p}"],"112":["x = {−b ± √D/2a}","x = {b ± √D/2a}","x = {−b ± D/2a}","x = {−b ± √D/a}"],"113":["logₐ(bc) = logₐb + logₐc","logₐ(bc) = logₐb · logₐc","logₐ(bc) = logₐ(b + c)","logₐ(bc) = logₐb − logₐc"],"116":["{xⁿ⁺¹/n+1} + C","n·xⁿ⁻¹ + C","{xⁿ/n} + C","{xⁿ⁻¹/n−1} + C"],"117":["F(b) − F(a)","F(a) − F(b)","F(b) + F(a)","f(b) − f(a)"],"119":["P(A) = {m/n}","P(A) = {n/m}","P(A) = m·n","P(A) = m − n"]};D.forEach(c=>c.g=G[c.i]);
+const GL=[[6,'5–6'],[7,'7'],[8,'8'],[9,'9'],[10,'10'],[11,'11']];
+const fm=s=>s.replace(/\{([^{}\/]+)\/([^{}]+)\}/g,'<span class="fx"><i>$1</i><i>$2</i></span>');
+const $=document.getElementById('app'),sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const PAL=[['#6a4dff','#c04dff'],['#12c0e8','#2f6bff'],['#ffb23d','#ff5471'],['#1fd6a0','#12a8e0'],['#ff5d9a','#ff8a4d'],['#8a4dff','#2f6bff']];
+const fz=(s,a,b,c)=>{const n=s.replace(/[{}]/g,'').length;return n>130?c:n>65?b:a};
+let M={},TX=0,H={},L=[],NM='',DY={};try{DY=JSON.parse(localStorage.getItem('md')||'{}');M=JSON.parse(localStorage.getItem('mk')||'{}');H=JSON.parse(localStorage.getItem('mh')||'{}');L=JSON.parse(localStorage.getItem('ml')||'[]');NM=localStorage.getItem('mn')||'';TX=+localStorage.getItem('mx')||0}catch(e){}
+const sv=()=>{try{localStorage.setItem('mk',JSON.stringify(M));localStorage.setItem('mh',JSON.stringify(H));localStorage.setItem('ml',JSON.stringify(L));localStorage.setItem('mn',NM);localStorage.setItem('md',JSON.stringify(DY));localStorage.setItem('mx',TX)}catch(e){}};
+const lvl=()=>Math.floor(TX/250)+1,pool=m=>D.filter(c=>gs.has(c.g)&&(m=='cards'||QZ[c.i])&&(!hardOnly||M[c.i]==1));
+let smart=1,hardOnly=0,lq='',lg=0,bag=[],cnt=20,TT=60,deck,pos,busy,gs=new Set([6,7,8,9,10,11]),xp,st,best,first,total,mode,lives,tm,tl,att,over,cur;
+function home(){scr('home');sv();clearInterval(tm);over=1;setTimeout(cu,30);const k=D.filter(c=>M[c.i]==2).length;
+ $.innerHTML=`<div class="scr"><div class="hd"><div class="logo"><b>∑</b>МатКартки</div><div style="display:flex;gap:8px"><button class="pill" onclick="prog()">📊<span class="tx"> Прогрес</span></button><span class="pill">⭐ <span class="tx">Рівень </span>${lvl()} · <b id="xpn">${TX}</b> XP</span></div></div>
+ <div><h1 class="hero">Що повторимо <span class="g">сьогодні?</span></h1><div class="sub">Вивчено ${k} з ${D.length} карток</div></div>
+ <div class="bento">
+ <button class="tile t1" onclick="run('cards')"><span class="go">→</span><i>🃏</i><div><h3>Картки</h3><p>Перевертай і перевіряй себе</p></div></button>
+ <button class="tile t2" onclick="run('quiz')"><span class="go">→</span><i>🧠</i><div><h3>Вікторина</h3><p>4 варіанти, 3 життя</p></div></button>
+ <button class="tile t3" onclick="run('blitz')"><span class="go">→</span><i>⚡</i><div><h3>Бліц</h3><p>Скільки встигнеш за час</p></div></button></div>
+ <div class="gl mp"><div class="mh"><span>Карта знань · 🟩 знаю · 🟧 повторити</span><button class="pill sm" onclick="rs(this)">↺ скинути</button></div><div class="map">${D.map(c=>`<b class="d${M[c.i]||0}" onclick="one(${c.i})"></b>`).join('')}</div></div></div>`}
+function rs(b){if(!rs.c){rs.c=1;b.textContent='Точно?';setTimeout(()=>{rs.c=0;if(b.isConnected)b.textContent='↺ скинути'},2500)}else{rs.c=0;M={};TX=0;H={};L=[];DY={};sv();home()}}
+function tg(g){gs.has(g)?gs.delete(g):gs.add(g);if(!gs.size)gs.add(g);setup()}
+function one(i){mode='cards';init([D[i]])}
+function run(m){mode=m;setup()}
+function setup(){scr('setup');const m=mode,bl=m=='blitz',n=pool(m).length,cta=bl?`⚡ Почати · ${TT} с`:`🚀 Почати · ${Math.min(n,cnt||n)} питань`;
+ $.innerHTML=`<div class="scr"><div class="hd"><button class="pill" onclick="home()">← Назад</button><span class="pill">${m=='cards'?'🃏 Картки':bl?'⚡ Бліц':'🧠 Вікторина'}</span></div>
+ <h1 class="hero">Налаштуй <span class="g">раунд</span></h1>
+ <div class="gl sec"><p class="lb">${bl?'Час':'Кількість питань'}</p><div class="seg">${bl?[30,60,90,120].map(v=>`<button class="${TT==v?'on':''}" onclick="TT=${v};setup()">${v} с</button>`).join(''):[10,20,30,50,0].map(v=>`<button class="${cnt==v?'on':''}" onclick="cnt=${v};setup()">${v||'Усі'}</button>`).join('')}</div></div>
+ <div class="gl sec"><p class="lb">Питання з класів</p><div class="cg">${GL.map(([g,l])=>`<button class="cb ${gs.has(g)?'on':''}" onclick="tg(${g})">${l} клас<small>${D.filter(c=>c.g==g&&(m=='cards'||QZ[c.i])).length} пит.</small></button>`).join('')}</div>
+ <div style="display:flex;gap:8px;margin-top:11px"><button class="pill sm" style="font-size:.9rem;padding:8px 14px" onclick="gs=new Set([6,7,8,9,10,11]);setup()">✓ Усі класи</button><button class="pill sm" style="font-size:.9rem;padding:8px 14px" onclick="gs=new Set([11]);setup()">Тільки 11</button></div></div>
+ <div class="sp"></div><button class="cta" onclick="go('${m}')">${cta}</button></div>`}
+function go(m){mode=m;let p=sh(pool(m));if(mode!='blitz'&&cnt)p=p.slice(0,cnt);init(p)}
+function init(d){deck=d;total=d.length;pos=0;busy=0;xp=0;st=0;best=0;first=0;att=0;lives=3;tl=TT;over=0;clearInterval(tm);
+ if(mode=='blitz')tm=setInterval(()=>{tl--;const a=document.getElementById('tl'),b=document.getElementById('tb');if(a)a.textContent=tl;if(b)b.style.width=tl/TT*100+'%';if(tl<=0)fin()},1000);draw()}
+function draw(){if(over)return;mode=='cards'?drawC():drawQ()}
+function hdr(pw,tmr,mid){return `<div class="hd"><button class="pill" onclick="home()">✕</button><div class="pb ${tmr?'tm':''}"><i id="tb" style="width:${pw}%"></i></div><span class="pill ${st>0?'pop':''}">${mid}</span></div>`}
+function drawC(){
+ if(pos>=deck.length)return fin();
+ scr('cards');const c=deck[pos],h=(c.i*47)%360;
+ $.innerHTML=`<div class="scr">${hdr(Math.min(100,first/total*100),0,`🔥 ${st} · ✨ ${xp}`)}
+ <div class="stage" style="--a:${PAL[c.i%6][0]};--b:${PAL[c.i%6][1]}"><div class="bk b2"></div><div class="bk b1"></div>
+ <div class="c" id="c" onclick="this.style.transform='';this.classList.toggle('f')"><div class="s ff"><span class="n">№ ${c.i+1}</span><div><div class="q" style="font-size:${fz(c.q,'clamp(1.6rem,6vw,2.4rem)','clamp(1.35rem,5vw,1.9rem)','1.15rem')}">${fm(c.q)}</div></div><div class="h">торкнись, щоб побачити відповідь</div></div><div class="s bc"><span class="n">Відповідь</span><div><div class="a" style="font-size:${fz(c.a,'clamp(1.5rem,5.5vw,2.1rem)','clamp(1.25rem,4.4vw,1.65rem)','1.08rem')}">${fm(c.a)}</div></div></div></div></div>
+ <div class="row"><button class="bt no" onclick="mv(0)">😵 Ще повчу</button><button class="bt ok" onclick="mv(1)">✅ Знаю!</button></div></div>`;
+ const e=document.getElementById('c');let x0;
+ e.ontouchstart=t=>x0=t.touches[0].clientX;
+ e.ontouchend=t=>{const d=t.changedTouches[0].clientX-x0;if(Math.abs(d)>70){e.onclick=null;mv(d>0?1:0)}};
+ e.onmousemove=ev=>{if(e.classList.contains('f'))return;const r=e.getBoundingClientRect();e.style.transform=`rotateY(${((ev.clientX-r.left)/r.width-.5)*10}deg) rotateX(${-((ev.clientY-r.top)/r.height-.5)*10}deg)`};
+ e.onmouseleave=()=>e.style.transform='';
+}
+function mv(k){if(busy)return;busy=1;const e=document.getElementById('c'),c=deck[pos];rec(c,k);e.style.transform='';e.classList.remove('f');e.classList.add(k?'r':'l');
+ if(k){st++;best=Math.max(best,st);xp+=10+Math.min(st,8)*3;if(!c.r)first++;M[c.i]=2;boom()}else{st=0;c.r=1;M[c.i]=1;deck.push(c)}
+ setTimeout(()=>{pos++;busy=0;draw()},330)}
+function drawQ(){
+ if(pos>=deck.length){if(mode=='blitz'){deck=sh(deck);pos=0}else return fin()}
+ scr('quiz');const c=deck[pos];const w=sh(QZ[c.i].slice(1)).map(t=>({a:t,i:-1}));if(!bag.length)bag=sh([0,1,2,3]);w.splice(bag.pop(),0,{a:QZ[c.i][0],i:c.i});const o=w;cur=o;const bl=mode=='blitz';
+ $.innerHTML=`<div class="scr">${hdr(bl?tl/TT*100:pos/total*100,bl,(bl?'⏱ <b id="tl">'+tl+'</b> · ':(lives>0?'❤️'.repeat(lives):'💀')+' · ')+`🔥 ${st} · ✨ ${xp}`)}
+ <div class="gl qq"><div class="q" style="font-size:${fz(c.q,'clamp(1.3rem,5vw,1.9rem)','clamp(1.15rem,4.2vw,1.5rem)','1.02rem')}">${fm(c.q)}</div></div>
+ <div class="opts">${o.map((x,k)=>`<button class="opt" style="animation-delay:${.08+k*.07}s" onclick="ans(${k})"><b>${'ABCD'[k]}</b><span>${fm(x.a)}</span></button>`).join('')}</div></div>`}
+function ans(k){if(busy)return;busy=1;att++;const c=deck[pos],ok=cur[k].i==c.i,bs=document.querySelectorAll('.opt');rec(c,ok);
+ bs.forEach((b,j)=>{if(cur[j].i==c.i)b.classList.add('okk')});
+ if(ok){st++;best=Math.max(best,st);xp+=10+Math.min(st,8)*3;first++;M[c.i]=2;boom()}
+ else{bs[k].classList.add('bad');st=0;M[c.i]=M[c.i]==2?2:1;try{navigator.vibrate(120)}catch(e){}if(mode=='quiz')lives--}
+ setTimeout(()=>{busy=0;if(over)return;if(mode=='quiz'&&lives<=0)return fin();pos++;draw()},ok?800:1900)}
+function boom(){for(let i=0;i<12;i++){const s=document.createElement('span');s.className='cf';s.textContent=Array.from("⭐✨🎉💜🔥")[i%5];s.style.cssText=`left:50%;top:45%;--x:${(Math.random()-.5)*340}px;--y:${(Math.random()-.8)*300}px`;document.body.append(s);setTimeout(()=>s.remove(),950)}}
+function fin(){if(over)return;scr('fin');over=1;clearInterval(tm);TX+=xp;
+ const n=mode=='cards'?total:att,p=n?Math.round(first/n*100):0,bd=[];if(n)L.push({d:Date.now(),m:mode,ok:first,n,xp});L=L.slice(-60);sv();
+ if(best>=5)bd.push('🔥 Серія 5+');if(n>=8&&first==n)bd.push('💎 Без помилок');if(xp>=200)bd.push('🚀 200+ XP');if(mode=='blitz'&&first>=10)bd.push('⚡ 10 за хвилину');if(!bd.length)bd.push('🌱 Початок шляху');
+ $.innerHTML=`<div class="scr"><div class="mid"><div class="e">${p>=80?'🏆':p>=50?'🚀':'💪'}</div><h1 class="hero"><span class="g">${mode=='quiz'&&lives<=0?'Життя закінчились':mode=='blitz'?'Час вийшов':'Пройдено'}</span></h1>
+ <div class="st"><div class="gl">${first}/${n}<small>правильно</small></div><div class="gl">${xp}<small>XP</small></div><div class="gl">${best}<small>серія 🔥</small></div></div><div>${bd.map(b=>`<span class="bd">${b}</span>`).join('')}</div><div class="sub" style="margin:0">Вивчено ${D.filter(c=>M[c.i]==2).length} з ${D.length} · точність за весь час ${acc()}%</div></div>
+ <button class="cta" onclick="go('${mode}')">🔁 Ще раз</button><button class="pill" style="padding:15px" onclick="home()">🏠 Меню</button></div>`;
+ for(let i=0;i<3;i++)setTimeout(boom,i*250)}
+const acc=()=>{let a=0,b=0;for(const k in H){a+=H[k][0];b+=H[k][1]}return a+b?Math.round(a/(a+b)*100):0};
+function rec(c,ok){const h=H[c.i]||(H[c.i]=[0,0]);h[ok?0:1]++;const t=new Date().toLocaleDateString('sv');DY[t]=(DY[t]||0)+1;sv()}
+function stt(){return GL.map(([g,l])=>{const cs=D.filter(c=>c.g==g);let a=0,b=0;cs.forEach(c=>{const h=H[c.i];if(h){a+=h[0];b+=h[1]}});return{l,k:cs.filter(c=>M[c.i]==2).length,n:cs.length,ac:a+b?Math.round(a/(a+b)*100):null}})}
+function prog(){scr('prog');const k=D.filter(c=>M[c.i]==2).length,ic={cards:'🃏',quiz:'🧠',blitz:'⚡'},dt=t=>new Date(t).toLocaleDateString('uk-UA',{day:'numeric',month:'short'});
+ $.innerHTML=`<div class="scr"><div class="hd"><button class="pill" onclick="home()">← Назад</button><button class="pill" onclick="rep(this)">📋 Звіт</button></div>
+ <input class="nm" placeholder="Ім’я учня" value="${NM.replace(/"/g,'&quot;')}" onchange="NM=this.value;sv()">
+ <div class="st"><div class="gl">${k}/${D.length}<small>вивчено</small></div><div class="gl">${acc()}%<small>точність</small></div><div class="gl">${L.length}<small>раундів</small></div></div>
+ <div class="gl sec"><p class="lb">За класами</p>${stt().map(x=>`<div class="gr"><b>${x.l} кл.</b><div class="pb"><i style="width:${x.k/x.n*100}%"></i></div><span>${x.k}/${x.n}${x.ac!=null?' · '+x.ac+'%':''}</span></div>`).join('')}</div>
+ <div class="gl sec lst"><p class="lb">Останні раунди</p>${L.length?L.slice().reverse().map(r=>`<div class="rr"><span>${ic[r.m]} ${dt(r.d)}</span><b>${r.ok}/${r.n}</b><span>${r.n?Math.round(r.ok/r.n*100):0}%</span></div>`).join(''):'<p class="sub" style="margin:0">Поки немає раундів</p>'}</div></div>`}
+function rep(b){const NL=String.fromCharCode(10),k=D.filter(c=>M[c.i]==2).length,t=['Звіт: '+(NM||'учень'),'Вивчено '+k+' з '+D.length+', точність '+acc()+'%, раундів '+L.length,...stt().map(x=>x.l+' клас: '+x.k+'/'+x.n+(x.ac!=null?' ('+x.ac+'%)':''))].join(NL);let ok=0;const a=document.createElement('textarea');a.value=t;document.body.append(a);a.select();try{ok=document.execCommand('copy')}catch(e){}a.remove();try{navigator.clipboard.writeText(t).catch(()=>{});ok=1}catch(e){}b.textContent=ok?'✓ Скопійовано':'Не вдалося';setTimeout(()=>{b.textContent='📋 Звіт'},1800)}
+const ds=()=>{let n=0,d=new Date();if(!DY[d.toLocaleDateString('sv')])d.setDate(d.getDate()-1);while(DY[d.toLocaleDateString('sv')]){n++;d.setDate(d.getDate()-1)}return n};
+function scr(n){const s=$.dataset.scr==n;$.dataset.scr=n;$.dataset.still=s?1:0}
+function cu(){const e=document.getElementById('xpn');if(!e)return;const T=+e.textContent,t0=performance.now();(function f(t){const p=Math.min(1,Math.max(0,(t-t0)/800));e.textContent=Math.round(T*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)}
+(()=>{let r=0,e;const R=document.documentElement;addEventListener('pointermove',ev=>{if(ev.pointerType=='touch')return;e=ev;const t=ev.target.closest&&ev.target.closest('.tile');if(t){const b=t.getBoundingClientRect();t.style.setProperty('--tx',ev.clientX-b.left+'px');t.style.setProperty('--ty',ev.clientY-b.top+'px')}
+if(!r)r=requestAnimationFrame(()=>{r=0;R.style.setProperty('--mx',e.clientX+'px');R.style.setProperty('--my',e.clientY+'px');R.style.setProperty('--px',(e.clientX/innerWidth-.5)*2);R.style.setProperty('--py',(e.clientY/innerHeight-.5)*2);document.body.classList.add('pt')})})})();
+home();
+</script></body></html>
